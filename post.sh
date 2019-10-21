@@ -51,7 +51,7 @@ apt-get -y install ufw
 systemctl status ufw
 #start the firewall
 #allow SSH
-uwf allow ssh
+ufw allow ssh
 systemctl start ufw
 systemctl enable ufw
 
