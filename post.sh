@@ -74,10 +74,5 @@ setxkbmap -layout gb
 # Set Timezone
 sudo dpkg-reconfigure tzdata
 
-
-
-
-
-
 # Install PowerShell package
 apt-get update && apt-get install -y powershell
