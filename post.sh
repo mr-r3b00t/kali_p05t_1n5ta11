@@ -1,4 +1,5 @@
-
+#!/bin/bash
+read -p "Enter Username: " username
 #regen ssh keys for root - you can disable root access later
 cd /etc/ssh/
 mkdir default_kali_keys
@@ -29,11 +30,11 @@ gsettings set org.gnome.desktop.screensaver lock-enabled true
 
 apt-get install libc6-dev-i386 -y
 
-adduser mrr3b00t
+adduser $username
 # you will be prompted for a password
 #now make them a member of sudo
 #thanks for the shout @7hunderSon :P
-usermod -aG sudo mrr3b00t
+usermod -aG sudo $username
 #configure ssh to now allow passwords or root logins – manual task
 #set ssh to start automatically
 systemctl enable ssh.service
@@ -50,7 +51,7 @@ apt-get -y install ufw
 systemctl status ufw
 #start the firewall
 #allow SSH
-uwf allow ssh
+ufw allow ssh
 systemctl start ufw
 systemctl enable ufw
 
