@@ -9,12 +9,16 @@ md5sum ssh_host_*
 cd default_kali_keys/
 md5sum *
 
+# Set Layout 
+setxkbmap -layout gb
+# Set Timezone
+sudo dpkg-reconfigure tzdata
+
 #configure apt for HTTPS
 cp /etc/apt/sources.list sources.bak
 apt install apt-transport-https
 sed -i ‘s/http:\/\//https:\/\//g’ /etc/apt/sources.list
 cat /etc/apt/sources.list
-
 
 #if you are updating an old version rememeber to update the repo key
 wget -q -O - https://archive.kali.org/archive-key.asc | apt-key add
@@ -57,11 +61,10 @@ systemctl enable ufw
 
 gzip -d /usr/share/wordlists/rockyou.txt.gz
 
-
 #download and install powershell (MICROSOFT VERSION)
 # Download & Install prerequisites
-wget http://ftp.us.debian.org/debian/pool/main/i/icu/libicu57_57.1-6+deb9u2_amd64.deb
-dpkg -i libicu57_57.1-6+deb9u2_amd64.deb
+wget http://ftp.us.debian.org/debian/pool/main/i/icu/libicu57_57.1-6+deb9u4_amd64.deb
+dpkg -i libicu57_57.1-6+deb9u4_amd64.deb
 apt-get update && apt-get install -y curl gnupg apt-transport-https
 
 # Add Microsoft public repository key to APT
@@ -69,10 +72,6 @@ curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
 
 # Add Microsoft package repository to the source list
 echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-debian-stretch-prod stretch main" | tee /etc/apt/sources.list.d/powershell.list
-# Set Layout 
-setxkbmap -layout gb
-# Set Timezone
-sudo dpkg-reconfigure tzdata
 
 # Install PowerShell package
 apt-get update && apt-get install -y powershell
