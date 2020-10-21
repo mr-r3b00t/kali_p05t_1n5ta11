@@ -61,6 +61,11 @@ systemctl enable ufw
 
 gzip -d /usr/share/wordlists/rockyou.txt.gz
 
+# install steghide
+apt-get -y install steghide
+wget https://github.com/R4yGM/stegbrute/releases/download/0.1.1/stegbrute_0.1.1_amd64.deb &&
+dpkg --install stegbrute_0.1.1_amd64.deb -y
+
 #download and install powershell (MICROSOFT VERSION)
 # Download & Install prerequisites
 wget http://ftp.us.debian.org/debian/pool/main/i/icu/libicu57_57.1-6+deb9u4_amd64.deb
