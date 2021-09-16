@@ -12,7 +12,7 @@ md5sum *
 #configure apt for HTTPS
 cp /etc/apt/sources.list sources.bak
 apt install apt-transport-https
-sed -i ‘s/http:\/\//https:\/\//g’ /etc/apt/sources.list
+sudo sed -i 's/http:\/\//https:\/\//g' /etc/apt/sources.list
 cat /etc/apt/sources.list
 
 
