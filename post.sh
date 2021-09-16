@@ -8,6 +8,7 @@ dpkg-reconfigure openssh-server
 md5sum ssh_host_*
 cd default_kali_keys/
 md5sum *
+cd ~/
 
 #configure apt for HTTPS
 cp /etc/apt/sources.list sources.bak
