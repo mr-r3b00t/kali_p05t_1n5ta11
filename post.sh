@@ -32,7 +32,7 @@ gsettings set org.gnome.desktop.session idle-delay 1800
 gsettings set org.gnome.desktop.screensaver lock-delay 0
 gsettings set org.gnome.desktop.screensaver lock-enabled true
 
-apt-get install libc6-dev-i386 -y
+apt-get install libc6-dev-i386 python3-pip -y
 
 adduser $username
 # you will be prompted for a password
@@ -61,7 +61,8 @@ systemctl enable ufw
 
 gzip -d /usr/share/wordlists/rockyou.txt.gz
 
-# install steghide
+# install stegtools
+pip3 install stegoveritas
 apt-get -y install steghide
 wget https://github.com/R4yGM/stegbrute/releases/download/0.1.1/stegbrute_0.1.1_amd64.deb &&
 dpkg --install stegbrute_0.1.1_amd64.deb -y
