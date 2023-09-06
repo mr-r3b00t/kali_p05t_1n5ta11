@@ -10,12 +10,16 @@ cd default_kali_keys/
 md5sum *
 cd ~/
 
+# Set Layout 
+setxkbmap -layout gb
+# Set Timezone
+sudo dpkg-reconfigure tzdata
+
 #configure apt for HTTPS
 cp /etc/apt/sources.list sources.bak
 apt install apt-transport-https
 sudo sed -i 's/http:\/\//https:\/\//g' /etc/apt/sources.list
 cat /etc/apt/sources.list
-
 
 #if you are updating an old version rememeber to update the repo key
 wget -q -O - https://archive.kali.org/archive-key.asc | apt-key add
@@ -29,7 +33,7 @@ gsettings set org.gnome.desktop.session idle-delay 1800
 gsettings set org.gnome.desktop.screensaver lock-delay 0
 gsettings set org.gnome.desktop.screensaver lock-enabled true
 
-apt-get install libc6-dev-i386 -y
+apt-get install libc6-dev-i386 python3-pip -y
 
 adduser $username
 # you will be prompted for a password
@@ -58,11 +62,16 @@ systemctl enable ufw
 
 gzip -d /usr/share/wordlists/rockyou.txt.gz
 
+# install stegtools
+pip3 install stegoveritas
+apt-get -y install steghide
+wget https://github.com/R4yGM/stegbrute/releases/download/0.1.1/stegbrute_0.1.1_amd64.deb &&
+dpkg --install stegbrute_0.1.1_amd64.deb -y
 
 #download and install powershell (MICROSOFT VERSION)
 # Download & Install prerequisites
-wget http://ftp.us.debian.org/debian/pool/main/i/icu/libicu57_57.1-6+deb9u2_amd64.deb
-dpkg -i libicu57_57.1-6+deb9u2_amd64.deb
+wget http://ftp.us.debian.org/debian/pool/main/i/icu/libicu57_57.1-6+deb9u4_amd64.deb
+dpkg -i libicu57_57.1-6+deb9u4_amd64.deb
 apt-get update && apt-get install -y curl gnupg apt-transport-https
 
 # Add Microsoft public repository key to APT
